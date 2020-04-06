@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Simon 2.0</title>
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
-		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link href="CSS/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -16,7 +16,9 @@
 		<a class="navbar-brand" href="index.html">
 			SIMON 2.0</a>
 		<form class="form-inline">
-			<button class="btn btn-dark my-2 my-sm-0">Rules</button>
+			<button type="button" class="btn btn-dark my-2 my-sm-0" data-toggle="modal" data-target="#rulesModal">
+                Rules
+            </button>
 		</form>
 	</nav>
 
@@ -89,27 +91,62 @@
 					</div>
 				</div>
 				<div class="col-12 col-lg-6 center">
-						<h2 class="level-title">.CONSOLE</h2>
-						<div class="col-12 md-offset-2 col-md-8 console-screen"><span class="console">Level 1</span></div>
-						<button class="btn play-button">Play</button>
+					<h2 class="level-title">.CONSOLE</h2>
+					<div class="col-12 md-offset-2 col-md-8 console-screen"><span class="console"></span></div>
+					<button class="btn play-button">Play</button>
 				</div>
 			</div>
 		</section>
 
 	</main>
 	<footer>
-        <div class="container-fluid clearit">
-            <div class="row clearit">  
-                <div class="col-12 clearit">
-                    <div class="footer-content center">Copyright: Matt Snell 2020</div>
-                </div>
-            </div>
-        </div>
+		<div class="container-fluid clearit">
+			<div class="row clearit">
+				<div class="col-12 clearit">
+					<div class="footer-content center">Copyright: Matt Snell 2020</div>
+				</div>
+			</div>
+		</div>
 	</footer>
+
+	<div class="modal fade" id="rulesModal" tabindex="-1" role="dialog" aria-labelledby="rulesModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="rulesModalLabel">Rules</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+				</div>
+				<div class="modal-body">
+					<ol>
+                        <li>Click the "POWER"" button to turn the console ON.</li>
+                        <li>Press the PLAY button. Simon will give only the first signal.</li>
+                        <li>Repeat Simon's signal by clicking on the section the lit up. If you get the sequence (one flash) right, your level will increase by 1 and Simon will then add another flash to the sequence.</li>
+                        <li>Continue repeating Simon's previous sequence. Try to reach level 20!</li>
+                        <li>If you make an error, you'll get the "X-X" notification. Simon will then repeat the sequence so you can try again.</li>
+                        <li>If "STRICT" is switched on, when you make an error, the game will start again from level 1.</li>
+                        <li>To start the game yourself, click the reset button during the player turn.</li>
+                        <li>For and extra challenge, hold the ctrl button to reveal the "HARD" option. <br>Note: once you have a "Hard" flash in your sequence, you won't be able to turn hard mode off until you reset to level 1</li>
+					</ol>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.js"
 		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 	<script src="js/script.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+	</script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+	</script>
 </body>
 
 </html>
