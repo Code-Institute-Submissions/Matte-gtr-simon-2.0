@@ -197,6 +197,19 @@
     margin-bottom: 20px;
 }
 
+/*---------------footer---------------*/
+
+.footer-content {
+    font-size: 10px;
+    background-color: #232528;
+    width: 100vw;
+    height: 80px;
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /*---------------media queries---------------*/
 
 @media (min-width: 992px) {
