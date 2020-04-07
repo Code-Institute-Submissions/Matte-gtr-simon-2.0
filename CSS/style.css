@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Stalinist+One&display=swap');
+
 /*---------------general---------------*/
 
 .center {
@@ -186,6 +188,7 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
+    font-family: "Press Start 2P", sans-serif;
 }
 
 .play-button {
