@@ -215,7 +215,7 @@
 
 /*---------------media queries---------------*/
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     .level-title {
         margin-top: 158px;
     }

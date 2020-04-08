@@ -34,6 +34,15 @@ $("#power-button").click(function () {
     };
 });
 
+function playSound(src, volume) {
+    if (sound == true) {
+        let sound = new Audio(src);
+        sound.volume = volume;
+        sound.currentTime = 0;
+        sound.play();
+    };
+};
+
 $("#strict-button").click(function () {
     if ($("#strict-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
         strict = true;
@@ -50,11 +59,10 @@ $("#sound-button").click(function () {
     };
 });
 
-function playSound(src, volume) {
-    if (sound == true) {
-        let sound = new Audio(src);
-        sound.volume = volume;
-        sound.currentTime = 0;
-        sound.play();
+$("#hard-button").click(function () {
+    if ($("#hard-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
+        difficulty = 5;
+    } else {
+        difficulty = 4;
     };
-};
+});
