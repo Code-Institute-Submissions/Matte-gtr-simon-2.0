@@ -29,10 +29,32 @@ $("#power-button").click(function () {
     } else {
         power = false;
         gameConsole.html("");
-        sequence = [];
-        playerTurn = false;
-        clearInterval(interval);
         $(".play-button").html("PLAY");
         playSound("../sounds/power-off.mp3", 0.1);
     };
 });
+
+$("#strict-button").click(function () {
+    if ($("#strict-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
+        strict = true;
+    } else {
+        strict = false;
+    };
+});
+
+$("#sound-button").click(function () {
+    if ($("#sound-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
+        sound = true;
+    } else {
+        sound = false;
+    };
+});
+
+function playSound(src, volume) {
+    if (sound == true) {
+        let sound = new Audio(src);
+        sound.volume = volume;
+        sound.currentTime = 0;
+        sound.play();
+    };
+};
