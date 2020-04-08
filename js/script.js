@@ -66,3 +66,18 @@ $("#hard-button").click(function () {
         difficulty = 4;
     };
 });
+
+window.addEventListener("keydown", function (key) {
+    if (key.keyCode == 17) {
+        $("#hard-display").slideDown("hidden-button");
+    };
+});
+
+window.addEventListener("keyup", function (key) {
+    if (key.keyCode == 17) {
+        setTimeout(function () {
+            $("#hard-display").slideUp("hidden-button");
+        }, 500);
+    };
+});
+
