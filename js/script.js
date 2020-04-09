@@ -1,6 +1,16 @@
 let power = false;
 let strict = false;
 let sound = true;
+let sequence = [];
+let playerSequence = [];
+let difficulty = 4;
+let playerTurn = false;
+let lightups = 0;
+let interval = 0;
+let level;
+let clicks = 0;
+let gameRunning = false;
+
 
 const topLeft = $("#section-1");
 const topRight = $("#section-2");
@@ -81,3 +91,19 @@ window.addEventListener("keyup", function (key) {
     };
 });
 
+function randomNumber(max) {
+    return newNum = Math.floor(Math.random() * Math.floor(max));
+};
+
+function startGame() {
+    if (power == true) {
+        sequence = [];
+        level = 1;
+        $(".play-button").html("RESET");
+        $(".console").html(level);
+        sequence.push(randomNumber(difficulty));
+        playerTurn = false;
+        power = false;
+        interval = setInterval(playGame, 1000);
+    };
+};
