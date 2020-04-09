@@ -101,9 +101,12 @@ function randomNumber(max) {
 function startGame() {
     if (power == true) {
         sequence = [];
+        playerSequence = [];
+        lightups = 0;
+        interval = 0;
         level = 1;
         $(".play-button").html("RESET");
-        $(".console").html("Level " + level);
+        $(".console").html("level " + level);
         sequence.push(randomNumber(difficulty));
         playerTurn = false;
         power = false;
