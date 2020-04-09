@@ -182,6 +182,7 @@
     font-size: 30px;
     border: 4px solid #4c2600;
     overflow: hidden;
+    padding: 0;
 }
 
 .console {
@@ -190,6 +191,7 @@
     top: 50%;
     transform: translate(-50%, -50%);
     font-family: "Press Start 2P", sans-serif;
+    width: 100%;
 }
 
 .play-button {
@@ -206,7 +208,7 @@
 .footer-content {
     font-size: 10px;
     background-color: #232528;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     color: #fafafa;
     display: flex;
