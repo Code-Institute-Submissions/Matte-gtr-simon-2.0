@@ -39,6 +39,9 @@ $("#power-button").click(function () {
     } else {
         power = false;
         gameConsole.html("");
+        sequence = [];
+        playerTurn = false;
+        clearInterval(interval);                                                 
         $(".play-button").html("PLAY");
         playSound("../sounds/power-off.mp3", 0.1);
     };
@@ -100,7 +103,7 @@ function startGame() {
         sequence = [];
         level = 1;
         $(".play-button").html("RESET");
-        $(".console").html(level);
+        $(".console").html("Level " + level);
         sequence.push(randomNumber(difficulty));
         playerTurn = false;
         power = false;
