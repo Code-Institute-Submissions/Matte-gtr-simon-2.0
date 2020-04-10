@@ -146,70 +146,70 @@ function playGame() {
 
 function one() {
     playSound("../sounds/simonSound1.mp3", 1);
-    topLeft.children().addClass("light-left");
+    topLeft.children().addClass("light");
     if (playerTurn == false) {
         setTimeout(function () {
-            topLeft.children().removeClass("light-left");
+            topLeft.children().removeClass("light");
         }, 500);
     } else {
         setTimeout(function () {
-            topLeft.children().removeClass("light-left");
+            topLeft.children().removeClass("light");
         }, 200);
     };
 };
 
 function two() {
     playSound("../sounds/simonSound2.mp3", 1);
-    topRight.children().addClass("light-right");
+    topRight.children().addClass("light");
     if (playerTurn == false) {
         setTimeout(function () {
-            topRight.children().removeClass("light-right");
+            topRight.children().removeClass("light");
         }, 500);
     } else {
         setTimeout(function () {
-            topRight.children().removeClass("light-right");
+            topRight.children().removeClass("light");
         }, 200);
     };
 };
 
 function three() {
     playSound("../sounds/simonSound3.mp3", 1);
-    bottomLeft.children().addClass("light-left");
+    bottomLeft.children().addClass("light");
     if (playerTurn == false) {
         setTimeout(function () {
-            bottomLeft.children().removeClass("light-left");
+            bottomLeft.children().removeClass("light");
         }, 500);
     } else {
         setTimeout(function () {
-            bottomLeft.children().removeClass("light-left");
+            bottomLeft.children().removeClass("light");
         }, 200);
     };
 };
 
 function four() {
     playSound("../sounds/simonSound4.mp3", 1);
-    bottomRight.children().addClass("light-right");
+    bottomRight.children().addClass("light");
     if (playerTurn == false) {
         setTimeout(function () {
-            bottomRight.children().removeClass("light-right");
+            bottomRight.children().removeClass("light");
         }, 500);
     } else {
         setTimeout(function () {
-            bottomRight.children().removeClass("light-right");
+            bottomRight.children().removeClass("light");
         }, 200);
     };
 };
 
 function five() {
     playSound("../sounds/simonSound5.wav", 0.1);
-    middle.children().addClass("light-left");
+    middle.children().addClass("light");
     if (playerTurn == false) {
         setTimeout(function () {
-            middle.children().removeClass("light-left");
+            middle.children().removeClass("light");
         }, 500);
     } else {
         setTimeout(function () {
-            middle.children().removeClass("light-left");
+            middle.children().removeClass("light");
         }, 200);
     };
 };
