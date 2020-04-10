@@ -41,7 +41,7 @@ $("#power-button").click(function () {
         gameConsole.html("");
         sequence = [];
         playerTurn = false;
-        clearInterval(interval);                                                 
+        clearInterval(interval);
         $(".play-button").html("PLAY");
         playSound("../sounds/power-off.mp3", 0.1);
     };
@@ -111,5 +111,105 @@ function startGame() {
         playerTurn = false;
         power = false;
         interval = setInterval(playGame, 1000);
+    };
+};
+
+function playGame() {
+    gameRunning = true;
+    clicks = 0;
+    playerSequence = [];
+    if (playerTurn == false) {
+        setTimeout(function () {
+            if (sequence[lightups] == 0) {
+                one();
+            } else if (sequence[lightups] == 1) {
+                two();
+            } else if (sequence[lightups] == 2) {
+                three();
+            } else if (sequence[lightups] == 3) {
+                four();
+            } else if (sequence[lightups] == 4) {
+                five();
+            };
+            lightups++
+        }, 300)
+    };
+    if (lightups == level) {
+        clearInterval(interval);
+        playerTurn = true;
+        gameRunning = false;
+        setTimeout(function () {
+            power = true;
+        }, 300);
+    };
+};
+
+function one() {
+    playSound("../sounds/simonSound1.mp3", 1);
+    topLeft.children().addClass("light-left");
+    if (playerTurn == false) {
+        setTimeout(function () {
+            topLeft.children().removeClass("light-left");
+        }, 500);
+    } else {
+        setTimeout(function () {
+            topLeft.children().removeClass("light-left");
+        }, 200);
+    };
+};
+
+function two() {
+    playSound("../sounds/simonSound2.mp3", 1);
+    topRight.children().addClass("light-right");
+    if (playerTurn == false) {
+        setTimeout(function () {
+            topRight.children().removeClass("light-right");
+        }, 500);
+    } else {
+        setTimeout(function () {
+            topRight.children().removeClass("light-right");
+        }, 200);
+    };
+};
+
+function three() {
+    playSound("../sounds/simonSound3.mp3", 1);
+    bottomLeft.children().addClass("light-left");
+    if (playerTurn == false) {
+        setTimeout(function () {
+            bottomLeft.children().removeClass("light-left");
+        }, 500);
+    } else {
+        setTimeout(function () {
+            bottomLeft.children().removeClass("light-left");
+        }, 200);
+    };
+};
+
+function four() {
+    playSound("../sounds/simonSound4.mp3", 1);
+    bottomRight.children().addClass("light-right");
+    if (playerTurn == false) {
+        setTimeout(function () {
+            bottomRight.children().removeClass("light-right");
+        }, 500);
+    } else {
+        setTimeout(function () {
+            bottomRight.children().removeClass("light-right");
+        }, 200);
+    };
+};
+
+function five() {
+    playSound("../sounds/simonSound5.wav", 0.1);
+    middle.children().addClass("light-left");
+    if (playerTurn == false) {
+        setTimeout(function () {
+            middle.children().removeClass("light-left");
+        }, 500);
+    } else {
+        setTimeout(function () {
+            middle.children().removeClass("light-left");
+        }, 200);
     };
 };
