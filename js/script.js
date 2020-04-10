@@ -213,3 +213,30 @@ function five() {
         }, 200);
     };
 };
+
+function playerGame(location) {
+    if (power == true && playerTurn == true) {
+        if (location == 0) {
+            one();
+            playerSequence.push(location);
+            checkSequence();
+        } else if (location == 1) {
+            two();
+            playerSequence.push(location);
+            checkSequence();
+        } else if (location == 2) {
+            three();
+            playerSequence.push(location);
+            checkSequence();
+        } else if (location == 3) {
+            four();
+            playerSequence.push(location);
+            checkSequence();
+        } else if (location == 4 && difficulty == 5) {
+            five();
+            playerSequence.push(location);
+            checkSequence();
+        };
+        lightups = 0;
+    };
+};

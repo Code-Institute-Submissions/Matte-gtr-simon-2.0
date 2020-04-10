@@ -8,9 +8,10 @@
 
 .background-style {
     background: url("../images/bg-orange.jpg");
-    background-repeat: none;
+    background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
+    min-height: 85.5vh;
 
 }
 
@@ -18,10 +19,6 @@
     margin: 0;
     padding: 0;
 }
-
-/*---------------navbar---------------*/
-
-
 
 /*---------------buttons---------------*/
 
@@ -85,6 +82,7 @@
     margin: 0 auto;
     color: #000000;
     transition: display .5s;
+    padding: 0;
 }
 
 /*---------------gamepad---------------*/
