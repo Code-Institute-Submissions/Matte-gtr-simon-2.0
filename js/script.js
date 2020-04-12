@@ -240,3 +240,48 @@ function playerGame(location) {
         lightups = 0;
     };
 };
+
+function checkSequence() {
+    if (sequence[clicks] == playerSequence[clicks]) {
+        clicks++;
+    } else {
+        playerTurn = false;
+        playerSequence = [];
+        clicks = 0;
+        if (strict == false) {
+            gameConsole.html("X-X");
+            power = false;
+            setTimeout(function () {
+                interval = setInterval(playGame, 1000);
+                gameConsole.html("Level " + level);
+                return
+            }, 1000);
+        } else {
+            gameConsole.html("X-X RESTART");
+            setTimeout(function () {
+                startGame();
+                return;
+            }, 1000);
+        };
+    };
+    if (level == clicks) {
+        playerTurn = false;
+        level++;
+        if (level == 21) {
+            gameConsole.html("WINNER!!!");
+            playSound("../sounds/winner.wav", 0.1);
+            setTimeout(function () {
+                startGame();
+            }, 10000);
+            return;
+        };
+        gameConsole.html("LEVEL UP");
+        sequence.push(randomNumber(difficulty));
+        setTimeout(function () {
+            gameConsole.html("Level " + level);
+            power = false;
+            interval = setInterval(playGame, 1000);
+            gameConsole.html("Level " + level);
+        }, 1000);
+    };
+};
