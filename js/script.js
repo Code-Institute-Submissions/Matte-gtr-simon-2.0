@@ -3,7 +3,7 @@ let strict = false;
 let sound = true;
 let sequence = [];
 let playerSequence = [];
-let difficulty = 4;
+let hard = false;
 let playerTurn = false;
 let lightups = 0;
 let interval = 0;
@@ -21,7 +21,7 @@ const gameConsole = $(".console");
 function buttonPower(el) {
     let prnt = $(el).parent();
     let ths = $(el)
-    if (prnt.css("backgroundColor") == "rgb(211, 211, 211)") {
+    if (prnt.css("backgroundColor") === "rgb(211, 211, 211)") {
         prnt.removeClass("button-background-off").addClass("button-background-on");
         ths.removeClass("button-off").addClass("button-on");
     } else {
@@ -32,7 +32,7 @@ function buttonPower(el) {
 
 $(document).ready(function () {
     $("#power-button").click(function () {
-        if ($("#power-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
+        if ($("#power-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
             power = true;
             gameConsole.html("-");
             playSound("../sounds/power-on.mp3", 0.1);
@@ -58,7 +58,7 @@ function playSound(src, volume) {
 };
 
 $("#strict-button").click(function () {
-    if ($("#strict-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
+    if ($("#strict-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
         strict = true;
     } else {
         strict = false;
@@ -66,7 +66,7 @@ $("#strict-button").click(function () {
 });
 
 $("#sound-button").click(function () {
-    if ($("#sound-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
+    if ($("#sound-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
         sound = true;
     } else {
         sound = false;
@@ -74,10 +74,10 @@ $("#sound-button").click(function () {
 });
 
 $("#hard-button").click(function () {
-    if ($("#hard-button-container").css("backgroundColor") == "rgb(211, 211, 211)") {
-        difficulty = 5;
+    if ($("#hard-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
+        hard = true;
     } else {
-        difficulty = 4;
+        hard = false;
     };
 });
 
@@ -99,6 +99,14 @@ function randomNumber(max) {
     return newNum = Math.floor(Math.random() * Math.floor(max));
 };
 
+function checkDifficulty() {
+    if (hard === true) {
+        return 5
+    } else if (hard === false) {
+        return 4
+    }
+}
+
 function startGame() {
     if (power === true) {
         sequence = [];
@@ -108,7 +116,7 @@ function startGame() {
         level = 1;
         $(".play-button").html("RESET");
         $(".console").html("level " + level);
-        sequence.push(randomNumber(difficulty));
+        sequence.push(randomNumber(checkDifficulty()));
         playerTurn = false;
         power = false;
         interval = setInterval(playGame, 1000);
@@ -233,7 +241,7 @@ function playerGame(location) {
             four();
             playerSequence.push(location);
             checkSequence();
-        } else if (location === 4 && difficulty === 5) {
+        } else if (location === 4 && hard === true) {
             five();
             playerSequence.push(location);
             checkSequence();
@@ -277,7 +285,7 @@ function checkSequence() {
             return;
         };
         gameConsole.html("LEVEL UP");
-        sequence.push(randomNumber(difficulty));
+        sequence.push(randomNumber(checkDifficulty()));
         setTimeout(function () {
             gameConsole.html("Level " + level);
             power = false;
