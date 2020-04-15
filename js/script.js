@@ -83,7 +83,10 @@ $("#hard-button").click(function () {
 
 window.addEventListener("keydown", function (key) {
     if (key.keyCode === 17) {
-        $("#hard-display").slideDown("hidden-button");
+        if (sequence.includes(4)) {
+        } else {
+            $("#hard-display").slideDown("hidden-button");
+        };
     };
 });
 
@@ -104,8 +107,8 @@ function checkDifficulty() {
         return 5
     } else if (hard === false) {
         return 4
-    }
-}
+    };
+};
 
 function startGame() {
     if (power === true) {
@@ -130,15 +133,15 @@ function playGame() {
     if (playerTurn === false) {
         setTimeout(function () {
             if (sequence[lightups] === 0) {
-                one();
+                sectionLight(topLeft);
             } else if (sequence[lightups] === 1) {
-                two();
+                sectionLight(topRight);
             } else if (sequence[lightups] === 2) {
-                three();
+                sectionLight(bottomLeft);
             } else if (sequence[lightups] === 3) {
-                four();
+                sectionLight(bottomRight);
             } else if (sequence[lightups] === 4) {
-                five();
+                sectionLight(middle);
             };
             lightups++
         }, 300)
@@ -153,72 +156,26 @@ function playGame() {
     };
 };
 
-function one() {
-    playSound("../sounds/simonSound1.mp3", 1);
-    topLeft.children().addClass("light");
-    if (playerTurn === false) {
-        setTimeout(function () {
-            topLeft.children().removeClass("light");
-        }, 500);
-    } else {
-        setTimeout(function () {
-            topLeft.children().removeClass("light");
-        }, 200);
+function sectionLight(section) {
+    if (section === topLeft) {
+        playSound("../sounds/simonSound1.mp3", 1);
+    } else if (section === topRight) {
+        playSound("../sounds/simonSound2.mp3", 1);
+    } else if (section === bottomLeft) {
+        playSound("../sounds/simonSound3.mp3", 1);
+    } else if (section === bottomRight) {
+        playSound("../sounds/simonSound4.mp3", 1);
+    } else if (section === middle) {
+        playSound("../sounds/simonSound5.wav", 0.1);
     };
-};
-
-function two() {
-    playSound("../sounds/simonSound2.mp3", 1);
-    topRight.children().addClass("light");
+    section.children().addClass("light");
     if (playerTurn === false) {
         setTimeout(function () {
-            topRight.children().removeClass("light");
+            section.children().removeClass("light");
         }, 500);
     } else {
         setTimeout(function () {
-            topRight.children().removeClass("light");
-        }, 200);
-    };
-};
-
-function three() {
-    playSound("../sounds/simonSound3.mp3", 1);
-    bottomLeft.children().addClass("light");
-    if (playerTurn === false) {
-        setTimeout(function () {
-            bottomLeft.children().removeClass("light");
-        }, 500);
-    } else {
-        setTimeout(function () {
-            bottomLeft.children().removeClass("light");
-        }, 200);
-    };
-};
-
-function four() {
-    playSound("../sounds/simonSound4.mp3", 1);
-    bottomRight.children().addClass("light");
-    if (playerTurn === false) {
-        setTimeout(function () {
-            bottomRight.children().removeClass("light");
-        }, 500);
-    } else {
-        setTimeout(function () {
-            bottomRight.children().removeClass("light");
-        }, 200);
-    };
-};
-
-function five() {
-    playSound("../sounds/simonSound5.wav", 0.1);
-    middle.children().addClass("light");
-    if (playerTurn === false) {
-        setTimeout(function () {
-            middle.children().removeClass("light");
-        }, 500);
-    } else {
-        setTimeout(function () {
-            middle.children().removeClass("light");
+            section.children().removeClass("light");
         }, 200);
     };
 };
@@ -226,23 +183,23 @@ function five() {
 function playerGame(location) {
     if (power === true && playerTurn === true) {
         if (location === 0) {
-            one();
+            sectionLight(topLeft)
             playerSequence.push(location);
             checkSequence();
         } else if (location === 1) {
-            two();
+            sectionLight(topRight)
             playerSequence.push(location);
             checkSequence();
         } else if (location === 2) {
-            three();
+            sectionLight(bottomLeft)
             playerSequence.push(location);
             checkSequence();
         } else if (location === 3) {
-            four();
+            sectionLight(bottomRight)
             playerSequence.push(location);
             checkSequence();
         } else if (location === 4 && hard === true) {
-            five();
+            sectionLight(middle)
             playerSequence.push(location);
             checkSequence();
         };
@@ -266,7 +223,7 @@ function checkSequence() {
                 return
             }, 1000);
         } else {
-            gameConsole.html("X-X RESTART");
+            gameConsole.html("X-X");
             setTimeout(function () {
                 startGame();
                 return;
