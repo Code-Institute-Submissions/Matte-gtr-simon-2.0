@@ -10,6 +10,7 @@ let interval = 0;
 let level;
 let clicks = 0;
 let gameRunning = false;
+let bgGrey = "rgb(211, 211, 211)";
 
 const topLeft = $("#section-1");
 const topRight = $("#section-2");
@@ -21,7 +22,7 @@ const gameConsole = $(".console");
 function buttonPower(el) {
     let prnt = $(el).parent();
     let ths = $(el)
-    if (prnt.css("backgroundColor") === "rgb(211, 211, 211)") {
+    if (prnt.css("backgroundColor") === bgGrey) {
         prnt.removeClass("button-background-off").addClass("button-background-on");
         ths.removeClass("button-off").addClass("button-on");
     } else {
@@ -32,7 +33,7 @@ function buttonPower(el) {
 
 $(document).ready(function () {
     $("#power-button").click(function () {
-        if ($("#power-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
+        if ($("#power-button-container").css("backgroundColor") === bgGrey) {
             power = true;
             gameConsole.html("-");
             playSound("poweron", 0.1);
@@ -58,7 +59,7 @@ function playSound(soundId, volume) {
 };
 
 $("#strict-button").click(function () {
-    if ($("#strict-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
+    if ($("#strict-button-container").css("backgroundColor") === bgGrey) {
         strict = true;
     } else {
         strict = false;
@@ -66,7 +67,7 @@ $("#strict-button").click(function () {
 });
 
 $("#sound-button").click(function () {
-    if ($("#sound-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
+    if ($("#sound-button-container").css("backgroundColor") === bgGrey) {
         sound = true;
     } else {
         sound = false;
@@ -74,7 +75,7 @@ $("#sound-button").click(function () {
 });
 
 $("#hard-button").click(function () {
-    if ($("#hard-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
+    if ($("#hard-button-container").css("backgroundColor") === bgGrey) {
         hard = true;
     } else {
         hard = false;
