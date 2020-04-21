@@ -70,7 +70,7 @@
     height: 20px;
     border-radius: 9px;
     border: 1px solid #000000;
-    margin-top: 3.5px;
+    margin-top: 3px;
 }
 
 .hidden-button {
@@ -207,7 +207,7 @@
     width: 100%;
 }
 
-.play-button {
+.console-button {
     margin: 0 auto;
     background: #9a9a9a;
     border: 1px solid #4c2600;
