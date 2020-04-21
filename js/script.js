@@ -19,6 +19,7 @@ const bottomRight = $("#section-4");
 const middle = $("#section-5");
 const gameConsole = $(".console");
 
+// Controls the visual side of the power, strict, sound and hard buttons to show if they are on or off 
 function buttonPower(el) {
     let prnt = $(el).parent();
     let ths = $(el)
@@ -31,6 +32,7 @@ function buttonPower(el) {
     };
 };
 
+// Sets up the game ready to be played when power is turned on, and the reverse when it is switched off 
 $(document).ready(function () {
     $("#power-button").click(function () {
         if ($("#power-button-container").css("backgroundColor") === bgGrey) {
@@ -50,6 +52,7 @@ $(document).ready(function () {
     });
 });
 
+// Plays audio based on input (soundId is the Id of the audio element in index.html)
 function playSound(soundId, volume) {
     if (sound === true) {
         let noise = document.getElementById(soundId);
@@ -58,6 +61,7 @@ function playSound(soundId, volume) {
     };
 };
 
+// Sets strict to true or false depending on button position (on/off)
 $("#strict-button").click(function () {
     if ($("#strict-button-container").css("backgroundColor") === bgGrey) {
         strict = true;
@@ -66,6 +70,7 @@ $("#strict-button").click(function () {
     };
 });
 
+// Sets sound to true or false depending on button position (on/off)
 $("#sound-button").click(function () {
     if ($("#sound-button-container").css("backgroundColor") === bgGrey) {
         sound = true;
@@ -74,6 +79,7 @@ $("#sound-button").click(function () {
     };
 });
 
+// Sets hard to true or false depending on button position (on/off)
 $("#hard-button").click(function () {
     if ($("#hard-button-container").css("backgroundColor") === bgGrey) {
         hard = true;
@@ -82,6 +88,7 @@ $("#hard-button").click(function () {
     };
 });
 
+// displays hard button if ctrl is pressed
 window.addEventListener("keydown", function (key) {
     if (key.keyCode === 17) {
         if (sequence.includes(4)) {
@@ -91,6 +98,7 @@ window.addEventListener("keydown", function (key) {
     };
 });
 
+// hides hard button if ctrl is released (with a half second delay)
 window.addEventListener("keyup", function (key) {
     if (key.keyCode === 17) {
         setTimeout(function () {
@@ -99,14 +107,17 @@ window.addEventListener("keyup", function (key) {
     };
 });
 
+// Displays hard button if "i" button is clicked (mobile & tablet only)
 function toggleHard() {
     $("#hard-display").slideToggle("hidden-button");
 };
 
+// Generates a random number and adds it to the sequence array
 function randomNumber(max) {
     return newNum = Math.floor(Math.random() * Math.floor(max));
 };
 
+// Hides "i" button if sequence contains a 4
 function hideHardButton() {
     if (sequence.includes(4)) {
         $("#show-hard-button").slideUp("d-none");
@@ -115,6 +126,7 @@ function hideHardButton() {
     };
 };
 
+// Generates the max number for the randomNumber function depending on hard being true or false
 function checkDifficulty() {
     if (hard === true) {
         return 5
@@ -123,6 +135,7 @@ function checkDifficulty() {
     };
 };
 
+// Activates start of game (play is clicked) and generates the first number in sequence variable
 function startGame() {
     if (power === true) {
         sequence = [];
@@ -140,6 +153,7 @@ function startGame() {
     };
 };
 
+// Runs the "computer" side of the game (sequence of flashes to copy)
 function playGame() {
     gameRunning = true;
     clicks = 0;
@@ -170,6 +184,7 @@ function playGame() {
     };
 };
 
+// Creates the flash when called by playGame or playerGame
 function sectionLight(section) {
     if (section === topLeft) {
         playSound("simon1", 1);
@@ -194,6 +209,7 @@ function sectionLight(section) {
     };
 };
 
+// Creates the flashes and adds number to playerSequence during the player (clicking) part of the game
 function playerGame(location) {
     if (power === true && playerTurn === true) {
         if (location === 0) {
@@ -221,6 +237,7 @@ function playerGame(location) {
     };
 };
 
+// Checks if the player sequence entered is correct or not and responds accordingly (replays sequence if wrong or resets if strics is true). Also notifies of winning the game and resets after preset time
 function checkSequence() {
     if (sequence[clicks] === playerSequence[clicks]) {
         clicks++;
