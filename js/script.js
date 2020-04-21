@@ -97,6 +97,10 @@ window.addEventListener("keyup", function (key) {
     };
 });
 
+function toggleHard() {
+    $("#hard-display").slideToggle("hidden-button");
+};
+
 function randomNumber(max) {
     return newNum = Math.floor(Math.random() * Math.floor(max));
 };
