@@ -42,7 +42,8 @@ $(document).ready(function () {
             sequence = [];
             playerTurn = false;
             clearInterval(interval);
-            $(".play-button").html("PLAY");
+            $("#play-button").html("PLAY");
+            hideHardButton();
             playSound("poweroff", 0.1);
         };
     });
@@ -105,6 +106,14 @@ function randomNumber(max) {
     return newNum = Math.floor(Math.random() * Math.floor(max));
 };
 
+function hideHardButton() {
+    if (sequence.includes(4)) {
+        $("#show-hard-button").slideUp("d-none");
+    } else {
+        $("#show-hard-button").slideDown("d-none");
+    };
+};
+
 function checkDifficulty() {
     if (hard === true) {
         return 5
@@ -120,9 +129,10 @@ function startGame() {
         lightups = 0;
         interval = 0;
         level = 1;
-        $(".play-button").html("RESET");
+        $("#play-button").html("RESET");
         $(".console").html("level " + level);
         sequence.push(randomNumber(checkDifficulty()));
+        hideHardButton();
         playerTurn = false;
         power = false;
         interval = setInterval(playGame, 1000);
@@ -246,6 +256,7 @@ function checkSequence() {
         };
         gameConsole.html("LEVEL UP");
         sequence.push(randomNumber(checkDifficulty()));
+        hideHardButton();
         setTimeout(function () {
             gameConsole.html("Level " + level);
             power = false;
