@@ -54,7 +54,7 @@ $(document).ready(function () {
 
 // Plays audio based on input (soundId is the Id of the audio element in index.html)
 function playSound(soundId, volume) {
-    if (sound === true) {
+    if (sound) {
         let noise = document.getElementById(soundId);
         noise.volume = volume;
         noise.play();
@@ -91,8 +91,7 @@ $("#hard-button").click(function () {
 // displays hard button if ctrl is pressed
 window.addEventListener("keydown", function (key) {
     if (key.keyCode === 17) {
-        if (sequence.includes(4)) {
-        } else {
+        if (!sequence.includes(4)) {
             $("#hard-display").slideDown("hidden-button");
         };
     };
@@ -114,30 +113,31 @@ function toggleHard() {
 
 // Generates a random number and adds it to the sequence array
 function randomNumber(max) {
-    return newNum = Math.floor(Math.random() * Math.floor(max));
+    return Math.floor(Math.random() * Math.floor(max));
 };
 
 // Hides "i" button if sequence contains a 4
 function hideHardButton() {
     if (sequence.includes(4)) {
         $("#show-hard-button").slideUp("d-none");
+        $("#hard-display").slideUp("hidden-button");
     } else {
         $("#show-hard-button").slideDown("d-none");
     };
 };
 
 // Generates the max number for the randomNumber function depending on hard being true or false
-function checkDifficulty() {
-    if (hard === true) {
+function getDifficultyValue() {
+    if (hard) {
         return 5
-    } else if (hard === false) {
+    } else {
         return 4
     };
 };
 
 // Activates start of game (play is clicked) and generates the first number in sequence variable
 function startGame() {
-    if (power === true) {
+    if (power) {
         sequence = [];
         playerSequence = [];
         lightups = 0;
@@ -145,7 +145,7 @@ function startGame() {
         level = 1;
         $("#play-button").html("RESET");
         $(".console").html("level " + level);
-        sequence.push(randomNumber(checkDifficulty()));
+        sequence.push(randomNumber(getDifficultyValue()));
         hideHardButton();
         playerTurn = false;
         power = false;
@@ -211,7 +211,7 @@ function sectionLight(section) {
 
 // Creates the flashes and adds number to playerSequence during the player (clicking) part of the game
 function playerGame(location) {
-    if (power === true && playerTurn === true) {
+    if (power && playerTurn) {
         if (location === 0) {
             sectionLight(topLeft)
             playerSequence.push(location);
@@ -228,7 +228,7 @@ function playerGame(location) {
             sectionLight(bottomRight)
             playerSequence.push(location);
             checkSequence();
-        } else if (location === 4 && hard === true) {
+        } else if (location === 4 && hard) {
             sectionLight(middle)
             playerSequence.push(location);
             checkSequence();
@@ -237,7 +237,8 @@ function playerGame(location) {
     };
 };
 
-// Checks if the player sequence entered is correct or not and responds accordingly (replays sequence if wrong or resets if strics is true). Also notifies of winning the game and resets after preset time
+// Checks if the player sequence entered is correct or not and responds accordingly 
+// (replays sequence if wrong or resets if strics is true). Also notifies of winning the game and resets after preset time
 function checkSequence() {
     if (sequence[clicks] === playerSequence[clicks]) {
         clicks++;
@@ -273,7 +274,7 @@ function checkSequence() {
             return;
         };
         gameConsole.html("LEVEL UP");
-        sequence.push(randomNumber(checkDifficulty()));
+        sequence.push(randomNumber(getDifficultyValue()));
         hideHardButton();
         setTimeout(function () {
             gameConsole.html("Level " + level);
