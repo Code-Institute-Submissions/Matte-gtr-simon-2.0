@@ -90,7 +90,12 @@ JavaScript
 JQuery
 The project uses JQuery to simplify DOM manipulation.
 
-## Testing
+## Automated testing
+
+To run the automated tests, open https://github.com/Matte-gtr/simon-2.0/tree/master/tests/test.html
+The details of what is being tested is described within the test.html page.
+
+## Manual Testing
 
 During the creation of this project, Google Chrome developer tools was used to view the site/pages on various different devices.
 The developer tools displays used were: Galaxy S5, Pixel 2, Pixel 2 XL, iPhone 5/se, iPhone X, iPhone 6/7/8, iPhone 6/7/8 Plus, iPad, iPad Pro.
@@ -109,61 +114,35 @@ The site was then tested on 3 different browsers:
 * Internet Explorer
 * Mozilla Firefox
 
-------------------------------------------------------------------------------------------------------------
-
-The display on internet explorer had some differences in font size but the site still generally flowed quite well.
-
-The site was also tested for fast user learning by asking 3 different people to use the site and find a particular section, then asking
-them how they felt about how easy it was to find. The reaction was good across all the testers.
-
-#### Bookings form:
-The first 3 fields have to be filled in before the form can be submitted. This was the case across all the different browsers.
-The form is not linked to anything so an errors appears on submission, to update at a later date.
-The form felt usable on all the different devices through testing and sizes well across all the screen sizes.
-
-##### Fancybox image viewer:
-This was also tested on all the different devices and works well across all of them. All of the options to scroll through 
-images worked on the different devices they were tested on.
-
-#### Footer mailing list form:
-This is not able to be submitted until an email address is filled in. This was the case in the testing across all of the devices.
+The site was also tested for fast user learning by asking 3 different people to use the site and figure out the game, then asking
+them how they felt about how easy it was to find. The reaction was generally good across all the testers, a note to make the difficulty
+setting easier to find was noted and will be implemented at a later date
 
 ## Deployment
 Github pages
 This site was deployed using Github pages.
 As the site was created in github originally and then worked on in Gitpod, a repository had already been created, then once the 
-site was mostly complete, the code
-was pushed to the github repository.
+site was mostly complete, the code was pushed to the github repository.
 I then went into the github repository, clicked on settings, scrolled down to the Github pages section and selected master branch 
 in the Source dropdown. this deploys the site 
 and when it updates, provides a link to the site.
 
 If you would like to edit or improve this website, type the following into your development evironment terminal after ensuring you are
 in the correct folder:
-git clone "https://github.com/Matte-gtr/hands_like_houses"
+git clone "https://github.com/Matte-gtr/simon-2.0"
 This will copy all of the files into you workspace and allow you to edit them as you see fit.
 
 #### Credits
 youtube - video hosting
+Freecodecame - examples and explanations of using multiple functions 
+w3schools - General learning material and descriptions
+freesound.org - sounds used in the game
+Codepen - sounds used in the game
 
 #### photo credits:
-background concrete image: pinterest/rawpixel
-hands like houses official website
-design cuts
-alison toon
-noted name
-The daily listening
-soundcheck live
-youtube
-skiddle.com
-forbes.com
-upset magazine
-freepik
-shutterstock
+Steve Griffith - Background Image
 
 #### Content
-kerrang - news excerpts / links
-bandsintown.com - ticket link
-about the band - wikipedia
+Ultraboardgames.com - Information for clear coverage of the rules of the simon game were sourced on Wikipedia
 
 The inspiration for this site primarily came from the ACDC band website.
