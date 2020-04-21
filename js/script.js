@@ -35,7 +35,7 @@ $(document).ready(function () {
         if ($("#power-button-container").css("backgroundColor") === "rgb(211, 211, 211)") {
             power = true;
             gameConsole.html("-");
-            playSound("../sounds/power-on.mp3", 0.1);
+            playSound("poweron", 0.1);
         } else {
             power = false;
             gameConsole.html("");
@@ -43,17 +43,16 @@ $(document).ready(function () {
             playerTurn = false;
             clearInterval(interval);
             $(".play-button").html("PLAY");
-            playSound("../sounds/power-off.mp3", 0.1);
+            playSound("poweroff", 0.1);
         };
     });
 });
 
-function playSound(src, volume) {
+function playSound(soundId, volume) {
     if (sound === true) {
-        let sound = new Audio(src);
-        sound.volume = volume;
-        sound.currentTime = 0;
-        sound.play();
+        let noise = document.getElementById(soundId);
+        noise.volume = volume;
+        noise.play();
     };
 };
 
@@ -158,15 +157,15 @@ function playGame() {
 
 function sectionLight(section) {
     if (section === topLeft) {
-        playSound("../sounds/simonSound1.mp3", 1);
+        playSound("simon1", 1);
     } else if (section === topRight) {
-        playSound("../sounds/simonSound2.mp3", 1);
+        playSound("simon2", 1);
     } else if (section === bottomLeft) {
-        playSound("../sounds/simonSound3.mp3", 1);
+        playSound("simon3", 1);
     } else if (section === bottomRight) {
-        playSound("../sounds/simonSound4.mp3", 1);
+        playSound("simon4", 1);
     } else if (section === middle) {
-        playSound("../sounds/simonSound5.wav", 0.1);
+        playSound("simon5", 0.1);
     };
     section.children().addClass("light");
     if (playerTurn === false) {
@@ -235,7 +234,7 @@ function checkSequence() {
         level++;
         if (level === 21) {
             gameConsole.html("WINNER!!!");
-            playSound("../sounds/winner.wav", 0.1);
+            playSound("winner", 0.1);
             setTimeout(function () {
                 startGame();
             }, 10000);
