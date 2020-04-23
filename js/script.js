@@ -11,6 +11,7 @@ let level;
 let clicks = 0;
 let gameRunning = false;
 let bgGrey = "rgb(211, 211, 211)";
+let bgGreyOpt = "rgba(211, 211, 211, 1)";
 
 const topLeft = $("#section-1");
 const topRight = $("#section-2");
@@ -23,7 +24,7 @@ const gameConsole = $(".console");
 function buttonPower(el) {
     let prnt = $(el).parent();
     let ths = $(el);
-    if (prnt.css("backgroundColor") === bgGrey) {
+    if (prnt.css("backgroundColor") === bgGrey || prnt.css("backgroundColor") === bgGreyOpt) {
         prnt.removeClass("button-background-off").addClass("button-background-on");
         ths.removeClass("button-off").addClass("button-on");
     } else {
@@ -35,7 +36,7 @@ function buttonPower(el) {
 // Sets up the game ready to be played when power is turned on, and the reverse when it is switched off 
 $(document).ready(function () {
     $("#power-button").click(function () {
-        if ($("#power-button-container").css("backgroundColor") === bgGrey) {
+        if ($("#power-button-container").css("backgroundColor") === bgGrey || $("#power-button-container").css("backgroundColor") === bgGreyOpt) {
             power = true;
             gameConsole.html("-");
             playSound("poweron", 0.1);
@@ -64,7 +65,7 @@ function playSound(soundId, volume) {
 
 // Sets strict to true or false depending on button position (on/off)
 $("#strict-button").click(function () {
-    if ($("#strict-button-container").css("backgroundColor") === bgGrey) {
+    if ($("#strict-button-container").css("backgroundColor") === bgGrey || $("#strict-button-container").css("backgroundColor") === bgGreyOpt) {
         strict = true;
     } else {
         strict = false;
@@ -73,7 +74,7 @@ $("#strict-button").click(function () {
 
 // Sets sound to true or false depending on button position (on/off)
 $("#sound-button").click(function () {
-    if ($("#sound-button-container").css("backgroundColor") === bgGrey) {
+    if ($("#sound-button-container").css("backgroundColor") === bgGrey || $("#sound-button-container").css("backgroundColor") === bgGreyOpt) {
         sound = true;
     } else {
         sound = false;
@@ -82,7 +83,7 @@ $("#sound-button").click(function () {
 
 // Sets hard to true or false depending on button position (on/off)
 $("#hard-button").click(function () {
-    if ($("#hard-button-container").css("backgroundColor") === bgGrey) {
+    if ($("#hard-button-container").css("backgroundColor") === bgGrey || $("#hard-button-container").css("backgroundColor") === bgGreyOpt) {
         hard = true;
     } else {
         hard = false;
