@@ -71,6 +71,10 @@ The ability to delimit the win-level-limit so the user can play longer sequences
 
 A link to buy the original game
 
+There is a bug within the game where, if a user clicks a section too soon after the computer has finished it's sequence, a flash will be 
+missed off the next sequence. This was fixed by creating a delay between the sequence ending and the user being able to click the sections.
+An alternative to this fix would be implemented in the future.
+
 ## Technologies Used
 
 HTML5
