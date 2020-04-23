@@ -139,6 +139,10 @@ function getDifficultyValue() {
 
 // Activates start of game (play is clicked) and generates the first number in sequence variable
 function startGame() {
+    if (playerTurn === false) {
+        clearInterval(interval);
+        power = true;
+    };
     if (power) {
         sequence = [];
         playerSequence = [];
