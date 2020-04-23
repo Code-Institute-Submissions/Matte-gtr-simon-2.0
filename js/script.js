@@ -22,7 +22,7 @@ const gameConsole = $(".console");
 // Controls the visual side of the power, strict, sound and hard buttons to show if they are on or off 
 function buttonPower(el) {
     let prnt = $(el).parent();
-    let ths = $(el)
+    let ths = $(el);
     if (prnt.css("backgroundColor") === bgGrey) {
         prnt.removeClass("button-background-off").addClass("button-background-on");
         ths.removeClass("button-off").addClass("button-on");
@@ -129,9 +129,9 @@ function hideHardButton() {
 // Generates the max number for the randomNumber function depending on hard being true or false
 function getDifficultyValue() {
     if (hard) {
-        return 5
+        return 5;
     } else {
-        return 4
+        return 4;
     };
 };
 
@@ -171,8 +171,8 @@ function playGame() {
             } else if (sequence[lightups] === 4) {
                 sectionLight(middle);
             };
-            lightups++
-        }, 300)
+            lightups++;
+        }, 300);
     };
     if (lightups === level) {
         clearInterval(interval);
@@ -213,23 +213,23 @@ function sectionLight(section) {
 function playerGame(location) {
     if (power && playerTurn) {
         if (location === 0) {
-            sectionLight(topLeft)
+            sectionLight(topLeft);
             playerSequence.push(location);
             checkSequence();
         } else if (location === 1) {
-            sectionLight(topRight)
+            sectionLight(topRight);
             playerSequence.push(location);
             checkSequence();
         } else if (location === 2) {
-            sectionLight(bottomLeft)
+            sectionLight(bottomLeft);
             playerSequence.push(location);
             checkSequence();
         } else if (location === 3) {
-            sectionLight(bottomRight)
+            sectionLight(bottomRight);
             playerSequence.push(location);
             checkSequence();
         } else if (location === 4 && hard) {
-            sectionLight(middle)
+            sectionLight(middle);
             playerSequence.push(location);
             checkSequence();
         };
@@ -252,7 +252,7 @@ function checkSequence() {
             setTimeout(function () {
                 interval = setInterval(playGame, 1000);
                 gameConsole.html("Level " + level);
-                return
+                return;
             }, 1000);
         } else {
             gameConsole.html("X-X");
