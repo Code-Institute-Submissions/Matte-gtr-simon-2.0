@@ -56,6 +56,7 @@ $(document).ready(function () {
 function playSound(soundId, volume) {
     if (sound) {
         let noise = document.getElementById(soundId);
+        noise.currentTime = 0;
         noise.volume = volume;
         noise.play();
     };
